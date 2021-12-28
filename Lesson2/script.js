@@ -44,7 +44,7 @@ let creator = (text, tag, date) => {
 
 let deleteAll = () =>  {
     localStorage.removeItem('todoArr');
-    todoListArr = null;
+    todoListArr = [];
     reCreate();
 }
 
