@@ -44,7 +44,11 @@ let creator = (text, tag, date) => {
         //-----------  localStorage  -------------
 
     addToLocalStorage();
-    addTodoItem(todoListArr.length-1,1);
+    
+    if(todoListArr.tag == 'Всё' || todoListArr.tag == tagListFind.value){
+        addTodoItem(todoListArr.length-1,1);
+    }
+
 }
 
     //-----------  Удалить всё -------------
@@ -103,7 +107,7 @@ let addTodoItem = (id, variant) =>{
 
     //-----------  Пересоздать страницу  -------------
 
-let reCreate = (parametr=tagListFind.value) => {
+let reCreate = () => {
 
     num = 1;
     numRestore = 1;
@@ -112,16 +116,16 @@ let reCreate = (parametr=tagListFind.value) => {
     
     if(todoListArr != null){
         for (let i = 0; i < todoListArr.length; i++) {
-            if(parametr=='Всё' || parametr == todoListArr[i].tag){
+            if(tagListFind.value=='Всё' || tagListFind.value == todoListArr[i].tag){
                 addTodoItem(i,1);
                 console.log(todoListArr[i].tag)
-                console.log(parametr)
+                console.log(tagListFind.value)
             }
         }
     }
     if(todoListArrRestore != null){
         for (let i = 0; i < todoListArrRestore.length; i++) {
-            if(parametr=='Всё' || parametr == todoListArrRestore[i].tag){
+            if(tagListFind.value=='Всё' || tagListFind.value == todoListArrRestore[i].tag){
                 addTodoItem(i,2);
             }
         }
