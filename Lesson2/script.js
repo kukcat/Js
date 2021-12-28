@@ -44,8 +44,8 @@ let creator = (text, tag, date) => {
         //-----------  localStorage  -------------
 
     addToLocalStorage();
-    
-    if(todoListArr.tag == 'Всё' || todoListArr.tag == tagListFind.value){
+  
+    if(tag == tagListFind.value || tagListFind.value == 'Всё'){
         addTodoItem(todoListArr.length-1,1);
     }
 
@@ -118,8 +118,6 @@ let reCreate = () => {
         for (let i = 0; i < todoListArr.length; i++) {
             if(tagListFind.value=='Всё' || tagListFind.value == todoListArr[i].tag){
                 addTodoItem(i,1);
-                console.log(todoListArr[i].tag)
-                console.log(tagListFind.value)
             }
         }
     }
