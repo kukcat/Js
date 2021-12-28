@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 80%;
+    background-color: #cccccc;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.btn, .change_text_btn, .change_text_btn_close{
+    width: 200px;
+    height: 50px;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.top_wrapper{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.list_text{
+    resize: none;
+}
+
+.todo_item{
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    border: 1px solid red;
+    padding: 20px;
+    align-items: center;
+}
+
+.todo_text{
+    width: 70%;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.todo_tag{
+    width: 10%;
+}
+
+.todo_remove{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.todo, .restore{
+    list-style-type: none;
+}
+
+.todo_restore{
+    cursor: pointer;
+}
+
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(100,100,100,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.change_text{
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.change_textarea{
+    resize: none;
+}

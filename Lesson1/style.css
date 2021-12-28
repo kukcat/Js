@@ -1,0 +1,38 @@
+
+.btn_create, .btn_clear, .btn_reverse{
+    width: 100px;
+    height: 30px;
+    background-color: #cccccc;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container{
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+}
+
+.arrow_wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.arrow{
+    background-color: grey;
+    color:white;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.second_container{
+    margin-top: 100px;
+}
