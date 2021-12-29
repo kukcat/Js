@@ -253,6 +253,12 @@ tasksListElement.addEventListener(`dragover`, (evt) => {
 
     let draggedElement = todoListArr[activeElement.getAttribute('data-index-number')];
     
-    todoListArr[currentElement.nextElementSibling.getAttribute('data-index-number')]
+
+    todoListArr[currentElement.getAttribute('data-index-number')] = todoListArr[currentElement.nextElementSibling.getAttribute('data-index-number')];
+    todoListArr[currentElement.nextElementSibling.getAttribute('data-index-number')] = draggedElement;
+
+    reCreate();
+    addToLocalStorage();
+    //todoListArr[]
 
   });
