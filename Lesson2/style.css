@@ -174,3 +174,12 @@
 .selected {
     opacity: 0.6;
 }
+
+.todo_select{
+    outline: none;
+    background-color: inherit;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+    margin-right: 10px;
+}

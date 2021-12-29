@@ -87,11 +87,17 @@ let addTodoItem = (id, variant) =>{
             newTodoItem.innerHTML= ` 
                 <div class="todo_number">${num}</div>
                 <div class="todo_item_wrapper"><input onclick="changeTodoText(this)" value="${todoListArr[id].text}" class="todo_text" onclick="changeTodoText(this)">
-                <div class="todo_tag">${todoListArr[id].tag}</div>
+                <select onclick="changeTodoTag(this)" class="todo_select" name="">
+                    <option value="Всё">Всё</option>
+                    <option value="Дом">Дом</option>
+                    <option value="Работа">Работа</option>
+                    <option value="Отдых">Отдых</option>
+                    <option value="Четвертый">Четвертый</option>
+                </select>
                 <div class="todo_date">${todoListArr[id].date}</div>
                 <div class="todo_remove" onclick="removeTodoElement(this)">Удалить</div></div>
             `
-            
+            newTodoItem.childNodes[3].childNodes[2].value = todoListArr[id].tag;
             num++;
 
         }else if(variant == 2){
@@ -221,44 +227,53 @@ let removeChangedText = (element) =>{
     element.remove();
 }
 
+let changeTodoTag = (element) => {
+    element.addEventListener('change', ()=>{
+        console.log(element.value)
+        todoListArr[element.closest(".todo_item").getAttribute('data-index-number')].tag = element.value
+        addToLocalStorage()
+        reCreate();
+    })
+}
+
 reCreate();
 
 
-tasksListElement.addEventListener(`dragover`, (evt) => {
-    evt.preventDefault();
-    let activeElement = tasksListElement.querySelector(`.selected`);
+// tasksListElement.addEventListener(`dragover`, (evt) => {
+//     evt.preventDefault();
+//     let activeElement = tasksListElement.querySelector(`.selected`);
  
-    let currentElement = evt.target;
-    let isMoveable = false
+//     let currentElement = evt.target;
+//     let isMoveable = false
 
-    if(activeElement !== currentElement && currentElement.classList.contains(`todo_item`)){
-        isMoveable = true
-    }else(
-        isMoveable = false
-    )
+//     if(activeElement !== currentElement && currentElement.classList.contains(`todo_item`)){
+//         isMoveable = true
+//     }else(
+//         isMoveable = false
+//     )
 
-    // Если нет, прерываем выполнение функции
-    if (!isMoveable) {
-      return;
-    }
-    // console.log(activeElement)
-    // console.log(activeElement.nextElementSibling)
-    // Находим элемент, перед которым будем вставлять
-    let nextElement = (currentElement === activeElement.nextElementSibling) ?
-        currentElement.nextElementSibling :
-        currentElement;
+//     // Если нет, прерываем выполнение функции
+//     if (!isMoveable) {
+//       return;
+//     }
+//     // console.log(activeElement)
+//     // console.log(activeElement.nextElementSibling)
+//     // Находим элемент, перед которым будем вставлять
+//     let nextElement = (currentElement === activeElement.nextElementSibling) ?
+//         currentElement.nextElementSibling :
+//         currentElement;
   
-    // Вставляем activeElement перед nextElement
-    tasksListElement.insertBefore(activeElement, nextElement);
+//     // Вставляем activeElement перед nextElement
+//     tasksListElement.insertBefore(activeElement, nextElement);
 
-    let draggedElement = todoListArr[activeElement.getAttribute('data-index-number')];
+//     let draggedElement = todoListArr[activeElement.getAttribute('data-index-number')];
     
 
-    todoListArr[currentElement.getAttribute('data-index-number')] = todoListArr[currentElement.nextElementSibling.getAttribute('data-index-number')];
-    todoListArr[currentElement.nextElementSibling.getAttribute('data-index-number')] = draggedElement;
+//     todoListArr[currentElement.getAttribute('data-index-number')] = todoListArr[currentElement.nextElementSibling.getAttribute('data-index-number')];
+//     todoListArr[currentElement.nextElementSibling.getAttribute('data-index-number')] = draggedElement;
 
-    reCreate();
-    addToLocalStorage();
-    //todoListArr[]
+//     reCreate();
+//     addToLocalStorage();
+//     //todoListArr[]
 
-  });
+//   });
